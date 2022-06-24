@@ -21,8 +21,12 @@ let lightImage
 function mouseOverLight() {
     lightImage.src = "lighton.png"
 }
+function mouseOffLight() {
+    lightImage.src='lightoff.png';
+}
 
 lightImage.addEventListener('mouseover', mouseOverLight);
+lightImage.addEventListener('mouseout', mouseOffLight);
 
 
 
@@ -35,8 +39,13 @@ let paragraph
 = document.getElementById('displayPara');
 
 function showPara(){
-    paragraph.style.display = 'contents';
-}
+    if (paragraph.style.display === 'none') {
+        paragraph.style.display = 'contents'
+    } else {
+        paragraph.style.display = 'none'
+    };
+};
+
 yellowButton.addEventListener('dblclick', showPara)
 
 //Activity 4
@@ -60,14 +69,26 @@ let goButton
 =document.getElementById('btnGo');
 
 function changeStop() {
-redLight.style.backgroundColor = 'red';
-};
+    if (redLight.style.backgroundColor === 'black') 
+    { redLight.style.backgroundColor = 'red';
+} else {
+    redLight.style.backgroundColor = 'black'
+}};
 function changeReady() {
-    yellowLight.style.backgroundColor = 'yellow';
+    if(yellowLight.style.backgroundColor === 'black')
+    {yellowLight.style.backgroundColor = 'yellow';}
+    else {
+        yellowLight.style.backgroundColor = 'black';
+    }
 };
+
 function changeGo() {
-    greenLight.style.backgroundColor = 'green';
-}
+    if (greenLight.style.backgroundColor === 'black') 
+    { greenLight.style.backgroundColor = 'green';
+} else {
+    greenLight.style.backgroundColor = 'black'
+}};
+
 
 stopButton.addEventListener('click', changeStop);
 readyButton.addEventListener('click', changeReady);
@@ -100,7 +121,7 @@ let validateButton
 = document.getElementById('btnSub2');
 
 function validateMee() {
-    if(validateBox.value.length > 9 ) {
+    if(validateBox.value.length > 8 ) {
         alert('Great...')
     }else {
         alert('Cant have less than 8 characters!!!')
@@ -120,6 +141,8 @@ let liHobbies
  
 
 function listHobbies() {
+let count = 0
+while(count<3) {
 
     let createLi
     = document.createElement("li");
@@ -130,6 +153,10 @@ function listHobbies() {
     createLi.innerHTML = promptInput;
     console.log(createLi);
     liHobbies.appendChild(createLi);
+
+    count++
+}
+
 }
 
 
