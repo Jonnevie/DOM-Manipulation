@@ -33,3 +33,8 @@ body {
     margin: auto;
     margin-top: 5px;
   }
+
+
+  #displayPara {
+    display: none;
+  }
